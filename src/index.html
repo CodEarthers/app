@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri App</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+    <body>
+        <ons-page>
+            <ons-tabbar swipeable position="top">
+                <ons-tab page="stations.html">stacje</ons-tab>
+                <ons-tab page="data.html">dane</ons-tab>
+                <ons-tab page="aqi.html">aqi</ons-tab>
+            </ons-tabbar>
+        </ons-page>
+    </body>
+
+    <template id="stations.html">
+        <ons-page onload="fn.generateStations()">
+            <ons-card class="title">
+                lista stacji pomiarowych
+            </ons-card>
+            <div id="stationView">
+
+            </div>
+            <script src="stations.js"></script>
+        </ons-page>
+    </template>
+    <template id="data.html">
+        <ons-page>
+            <ons-card>
+                dane
+            </ons-card>
+        </ons-page>
+    </template>
+    <template id="aqi.html">
+        <ons-page>
+            <ons-card>
+                aqi
+            </ons-card>
+        </ons-page>
+    </template>
+</html>

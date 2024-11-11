@@ -1,0 +1,83 @@
+{
+    "@context": {},
+    "sensor_list": [
+        {
+            "indicator_id": 3,
+             "station_id": 17880,
+             "sensor_id": 29671,
+            "indicator": "pył zawieszony PM10",
+            "indicator_code": "PM10",
+            "indicator_pattern": "PM10"
+        },
+        {
+            "indicator_id": 1,
+             "station_id": 17880,
+             "sensor_id": 29672,
+            "indicator": "dwutlenek siarki",
+            "indicator_code": "SO2",
+            "indicator_pattern": "SO2"
+        },
+        {
+            "indicator_id": 61,
+             "station_id": 17880,
+             "sensor_id": 29673,
+            "indicator": "benzo(a)piren w PM10",
+            "indicator_code": "BaP(PM10)",
+            "indicator_pattern": "BaP(PM10)"
+        },
+        {
+            "indicator_id": 16,
+             "station_id": 17880,
+             "sensor_id": 29674,
+            "indicator": "tlenek azotu",
+            "indicator_code": "NO",
+            "indicator_pattern": "NO"
+        },
+        {
+            "indicator_id": 7,
+             "station_id": 17880,
+             "sensor_id": 29675,
+            "indicator": "tlenki azotu",
+            "indicator_code": "NOx",
+            "indicator_pattern": "NOx"
+        },
+        {
+            "indicator_id": 5,
+             "station_id": 17880,
+             "sensor_id": 29676,
+            "indicator": "ozon",
+            "indicator_code": "O3",
+            "indicator_pattern": "O3"
+        },
+        {
+            "indicator_id": 8,
+             "station_id": 17880,
+             "sensor_id": 29677,
+            "indicator": "tlenek węgla",
+            "indicator_code": "CO",
+            "indicator_pattern": "CO"
+        },
+        {
+            "indicator_id": 3,
+             "station_id": 17880,
+             "sensor_id": 29679,
+            "indicator": "pył zawieszony PM10",
+            "indicator_code": "PM10",
+            "indicator_pattern": "PM10"
+        },
+        {
+            "indicator_id": 6,
+             "station_id": 17880,
+             "sensor_id": 29680,
+            "indicator": "dwutlenek azotu",
+            "indicator_code": "NO2",
+            "indicator_pattern": "NO2"
+        }
+    ],
+   "links": {
+    },
+  "meta": {
+
+    },
+    "total_pages": 1
+}
