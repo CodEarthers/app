@@ -1,7 +1,13 @@
-# Tauri + Vanilla
+# Licznik wody i miernik jakości powietrza
+Jest to aplikacja mobilna zawierająca 
+podstawowe narzędzia takie jak:
+  - Licznik wody
+  - miernik jakości powietrza
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Javascript.
+## aplikacja została stworzona przy 
+użyciu [tauri](https://tauri.app/)
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+## uruchomienie i kompilacja
+wszelkie wymagania co do
+zbudowania aplikacji są zawarte 
+[na stronie tauri](https://v2.tauri.app/start/prerequisites/)
