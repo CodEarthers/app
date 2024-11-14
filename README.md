@@ -5,7 +5,7 @@ podstawowe narzędzia takie jak:
   - miernik jakości powietrza
 
 ## aplikacja została stworzona przy 
-użyciu [tauri](https://tauri.app/)
+użyciu [tauri](https://v2.tauri.app/)
 
 ## uruchomienie i kompilacja
 wszelkie wymagania co do
