@@ -1,0 +1,18 @@
+
+#aqi {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+#aqi>a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: unset;
+    color: black;
+    justify-content: center;
+    align-items: center;
+}

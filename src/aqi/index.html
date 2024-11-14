@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri App</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    
+    <script type="module" src="/main.js"></script>
+  </head>
+    <body>
+        <button id="aqi">
+            <a href="../index.html">woda</a>
+        </button>
+        <ons-page>
+            <ons-tabbar swipeable position="top">
+                <ons-tab page="stations.html">stacje</ons-tab>
+                <ons-tab page="sensors.html">wskaźniki</ons-tab>
+                <ons-tab page="data.html">dane</ons-tab>
+                <ons-tab page="aqi.html">aqi</ons-tab>
+            </ons-tabbar>
+        </ons-page>
+    </body>
+
+    <template id="stations.html">
+        <ons-page onload="fn.generateStations()">
+            <ons-card class="title">
+                lista stacji pomiarowych
+            </ons-card>
+            <div id="stationView">
+
+            </div>
+            <script type="module" src="stations.js"></script>
+        </ons-page>
+    </template>
+    <template id="stations.html">
+        <ons-page onload="fn.generateSensors()">
+            <ons-card class="title">
+                lista wskaźników
+            </ons-card>
+            <div  id="sensorView">
+
+            </div>
+            <script type="module" src="sensors.js" defer></script>
+        </ons-page>
+    </template>
+    <template id="data.html">
+        <ons-page>
+            <ons-card>
+                dane
+            </ons-card>
+            <div id="dataView">
+
+            </div>
+            <script src="data.js" defer></script>
+        </ons-page>
+    </template>
+    <template id="aqi.html">
+        <ons-page>
+            <ons-card>
+                aqi
+            </ons-card>
+            <div id="aqiView">
+
+            </div>
+            <script type="module" src="aqi.js" defer></script>
+        </ons-page>
+    </template>
+</html>

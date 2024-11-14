@@ -1,6 +1,11 @@
 import { load } from '@tauri-apps/plugin-store';
-const { invoke } = window.__TAURI__.core;
-const store = await load('store.json', { autoSave: true });
+
+let store
+
+(async ()=>{
+    store = await load('store.json', { autoSave: true });
+    generateStations()
+})()
 
 const create = (html) => {
     let template = document.createElement("template")
@@ -37,4 +42,3 @@ const generateStations = () => {
         })
     })
 }
-generateStations()

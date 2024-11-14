@@ -1,49 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-    <script type="module" src="/main.js" defer></script>
-  </head>
-    <body>
-        <ons-page>
-            <ons-tabbar swipeable position="top">
-                <ons-tab page="stations.html">stacje</ons-tab>
-                <ons-tab page="data.html">dane</ons-tab>
-                <ons-tab page="aqi.html">aqi</ons-tab>
-            </ons-tabbar>
-        </ons-page>
-    </body>
-
-    <template id="stations.html">
-        <ons-page onload="fn.generateStations()">
-            <ons-card class="title">
-                lista stacji pomiarowych
-            </ons-card>
-            <div id="stationView">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./HackHeroes2024.css">
+    <link rel="stylesheet" href="./HackHeroes2024_Scaling.css">
+    <script src="./HackHeroes2024.js"></script>
+</head>
+<body>
+    <div id="aqi">
+        <a href="./aqi/index.html">
+            stacje
+        </a>
+    </div>
+    <div id="flex">
+        <div id="water">
+            <div id="water_bar">
+                <div id="water_amount">0m<span class="super">3</span></div>
+                <p id="water_amount_L">0L</p>
             </div>
-            <script src="stations.js"></script>
-        </ons-page>
-    </template>
-    <template id="data.html">
-        <ons-page>
-            <ons-card>
-                dane
-            </ons-card>
-        </ons-page>
-    </template>
-    <template id="aqi.html">
-        <ons-page>
-            <ons-card>
-                aqi
-            </ons-card>
-        </ons-page>
-    </template>
+            <input id="water_number_range" class="range" type="range" min="0" max="100" value="0" oninput="UpdateSliderRan()" onfocus="UpdateSliderRan()">
+            <div id="okres_czasu">
+                <input type="button" id="day" class="okres" value="dzień" onclick="ScaleChange()">
+                <input type="button" id="month" class="okres" value="miesiąc" onclick="ScaleChange()">
+                <input type="button" id="year" class="okres" value="rok" onclick="ScaleChange()">
+            </div>
+            <div>
+                <input type="button" id="1" class="skala" value="osoba" onclick="ScaleChange()">
+                <input type="button" id="2" class="skala" value="budynek wielorodzinny" onclick="ScaleChange()">
+                <input type="button" id="3" class="skala" value="firma" onclick="ScaleChange()">
+            </div>
+            <input id="potwierdzenie" type="submit" value="Wymagane Dane" onclick="Submit()" disabled>
+        </div>
+        <div id="check">
+            <h1>Wybierz sposoby zużywania przez ciebie wody (Wymagane co najmniej 2 Pola)</h1>
+            <input type="button" class="button false" value="Zmywarka" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Pralka" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+        </div>
+    </div>
+    <div id="result">
+        <h1><pre>v    v    v    Wyniki    v    v    v</pre></h1>
+    </div>
+    <div id="stats-inactive">
+        <h1 id="water_price"></h1>
+        <h1 id="usage"></h1>
+        <div id="stat_meter">
+            <div class="meter"><div class="meter_p" id="mp_1"></div></div>
+            <div class="meter"><div class="meter_p" id="mp_2"></div></div>
+            <div class="meter"><div class="meter_p" id="mp_3"></div></div>
+        </div>
+    </div>
+</body>
 </html>
