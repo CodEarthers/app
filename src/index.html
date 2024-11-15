@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kalkulator Wodny</title>
     <link rel="stylesheet" href="./HackHeroes2024.css">
-    <link rel="stylesheet" href="./HackHeroes2024_Scaling.css">
     <script src="./HackHeroes2024.js"></script>
 </head>
 <body>
@@ -27,24 +26,24 @@
                 <input type="button" id="year" class="okres" value="rok" onclick="ScaleChange()">
             </div>
             <div>
-                <input type="button" id="1" class="skala" value="osoba" onclick="ScaleChange()">
-                <input type="button" id="2" class="skala" value="budynek wielorodzinny" onclick="ScaleChange()">
-                <input type="button" id="3" class="skala" value="firma" onclick="ScaleChange()">
+                <input type="button" id="1" class="skala" value="x1" onclick="ScaleChange()">
+                <input type="button" id="2" class="skala" value="x100" onclick="ScaleChange()">
+                <input type="button" id="3" class="skala" value="x1000" onclick="ScaleChange()">
             </div>
             <input id="potwierdzenie" type="submit" value="Wymagane Dane" onclick="Submit()" disabled>
         </div>
         <div id="check">
             <h1>Wybierz sposoby zużywania przez ciebie wody (Wymagane co najmniej 2 Pola)</h1>
-            <input type="button" class="button false" value="Zmywarka" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Pralka" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
-            <input type="button" class="button false" value="Urządzenia elektyczne" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
+            <input type="button" class="button false" value="Przykładowe urządzenie" onclick="ButtonChange()">
         </div>
     </div>
     <div id="result">
@@ -53,10 +52,27 @@
     <div id="stats-inactive">
         <h1 id="water_price"></h1>
         <h1 id="usage"></h1>
-        <div id="stat_meter">
+        <div class="stat_meter">
+            <h2>Twoje żużycie wody w danym okresie czasu względem średniego zużycia w Polsce:</h2>
+        </div>
+        <div class="stat_meter">
             <div class="meter"><div class="meter_p" id="mp_1"></div></div>
             <div class="meter"><div class="meter_p" id="mp_2"></div></div>
             <div class="meter"><div class="meter_p" id="mp_3"></div></div>
+        </div>
+        <div class="stat_meter">
+            <div>
+                Dzień
+                <p>Średnie zużycie w Polsce: 0.092m<span class="super">3</span>(92L)</p>
+            </div>
+            <div>
+                Miesiąc
+                <p>Średnie zużycie w Polsce: 4m<span class="super">3</span>(4000L)</p>
+            </div>
+            <div>
+                Rok
+                <p>Średnie zużycie w Polsce: 34<span class="super">3</span>(34000L)</p>
+            </div>
         </div>
     </div>
 </body>
