@@ -1,11 +1,11 @@
 let waterScale = 0.001;
 let timeScale = 1;
 function NumberUpdate() {
-    let waterValue = document.getElementById('water_number_range').value;
+    let waterValue = document.querySelector('#water_number_range').value;
     let endScore = waterValue * waterScale * timeScale;
-    document.getElementById('water_amount').innerHTML = parseFloat(endScore.toFixed(3)) + 'm<sup>3</sup>';
-    document.getElementById('water_amount_L').innerHTML = (endScore * 1000).toFixed() + 'L';
-    return usage = endScore.toFixed(3);
+    document.querySelector('#water_amount').innerHTML = parseFloat(endScore.toFixed(3)) + 'm<span class="super">3</span>';
+    document.querySelector('#water_amount_L').innerHTML = (endScore * 1000).toFixed() + 'L';
+    return usage = parseFloat(endScore.toFixed(3));
 }
 
 function ButtonChange() {
@@ -16,9 +16,9 @@ function ButtonChange() {
 function UpdateSliderRan() {
     if (document.activeElement.id == 'water_number_range')
     {
-        let slider = document.getElementById('water_number_range');
+        let slider = document.querySelector('#water_number_range');
         let value = (slider.value / slider.getAttribute('max')) * 100; //wartosc koncowa, balans wartosci
-        document.getElementById('water_bar').style.backgroundImage = `linear-gradient(transparent ${100 - value}%, cornflowerblue ${100 - value}%, midnightblue)`; //procent zapelnienia tla po zbalanowaniu przez value
+        document.querySelector('#water_bar').style.backgroundImage = `linear-gradient(transparent ${100 - value}%, cornflowerblue ${100 - value}%, midnightblue)`; //procent zapelnienia tla po zbalanowaniu przez value
         NumberUpdate(); //wyswietlenie liczby
         CheckIfRight(); //sprawdzenie wymagan
         
@@ -59,18 +59,19 @@ function ScaleChange() {
             NumberUpdate()
             break;
     }
+    CheckIfRight();
 }
 
 function CheckIfRight() {
-    if (document.getElementById('water_amount').innerHTML != '0m<sup>3</sup>' && document.getElementsByClassName('button true').length >= 2)
+    if (document.querySelector('#water_amount').innerHTML != '0m<span class="super">3</span>' && document.getElementsByClassName('button true').length >= 2)
         {
-            document.getElementById('potwierdzenie').removeAttribute('disabled');
-            document.getElementById('potwierdzenie').value = 'Potwierdź';
+            document.querySelector('#potwierdzenie').removeAttribute('disabled');
+            document.querySelector('#potwierdzenie').value = 'Potwierdź';
         }
         else
         {
-            document.getElementById('potwierdzenie').setAttribute('disabled', true);
-            document.getElementById('potwierdzenie').value = 'Wymagane Dane';
+            document.querySelector('#potwierdzenie').setAttribute('disabled', true);
+            document.querySelector('#potwierdzenie').value = 'Wymagane Dane';
         }
 }
 
@@ -78,27 +79,44 @@ function Submit() {
     answer = confirm("Czy jesteś pewien?");
     if (answer == true)
     {
-        document.getElementById('potwierdzenie').value = '';
-        document.getElementById('potwierdzenie').toggleAttribute('disabled');
-        document.getElementById('result').style.display = 'flex';
-        document.getElementById('stats-inactive').style.display = 'flex';
+        document.querySelector('#potwierdzenie').value = '';
+        document.querySelector('#potwierdzenie').toggleAttribute('disabled');
+        document.querySelector('#result').style.display = 'flex';
+        document.querySelector('#stats-inactive').style.display = 'flex';
+        scrollBy(0, 1000);
         Podsumowanie();
         AVG();
-        scrollBy(0, 1000);
     }
 }
 
 function Podsumowanie() {
-    let cena = Number(prompt("Cena wody:"));
+    let cena = 6;
     let result = (cena * usage).toFixed(2);
-    document.getElementById('water_price').innerHTML = `Aktualna cena wody wynosi: ${cena}zl/m<span class="super">3</span>`;
-    document.getElementById('usage').innerHTML = `Twoje zużycie wody wynosi: ${cena}zl/m<span class="super">3</span> * ${usage}m<span class="super">3</span> ≈ ${result}zl (${timeScale == 1 ? 'dzien' : timeScale == 30 ? 'miesiac' : 'rok'})`;
+    document.querySelector('#water_price').innerHTML = `Aktualna cena wody wynosi ok. ${cena}zł/m<span class="super">3</span>`;
+    document.querySelector('#usage').innerHTML = `Twój koszt wody wynosi ok. ${cena}zł/m<span class="super">3</span> * ${usage}m<span class="super">3</span> ≈ ${result}zł (${timeScale == 1 ? 'dzień' : timeScale == 30 ? 'miesiąc' : 'rok'})`;
     return result;
 }
 
 function AVG() {
-    let average = 30;
-    document.querySelector('#mp_1').style.transform = `rotate(${usage/average*90}deg)`;
-    document.querySelector('#mp_2').style.transform = `rotate(${usage/average*90}deg)`;
-    document.querySelector('#mp_3').style.transform = `rotate(${usage/average*90}deg)`;
+    let average1 = 0.092;
+    let average2 = 4;
+    let average3 = 34;
+
+    switch (timeScale)
+    {
+        case 1:
+            usage/average1*90 > 180 ? document.querySelector('#mp_1').style.transform = `rotate(180deg)` : document.querySelector('#mp_1').style.transform = `rotate(${usage/average1*90}deg)`;
+            (usage*30)/average2*90 > 180 ? document.querySelector('#mp_2').style.transform = `rotate(180deg)` : document.querySelector('#mp_2').style.transform = `rotate(${(usage*30)/average2*90}deg)`;
+            (usage*365)/average3*90 > 180 ? document.querySelector('#mp_3').style.transform = `rotate(180deg)` : document.querySelector('#mp_3').style.transform = `rotate(${(usage*365)/average3*90}deg)`;
+            break;
+        case 30:
+            (usage/30)/average1*90 > 180 ? document.querySelector('#mp_1').style.transform = `rotate(180deg)` : document.querySelector('#mp_1').style.transform = `rotate(${(usage/30)/average1*90}deg)`;
+            usage/average2*90 > 180 ? document.querySelector('#mp_2').style.transform = `rotate(180deg)` : document.querySelector('#mp_2').style.transform = `rotate(${usage/average2*90}deg)`;
+            (usage*12.166)/average3*90 > 180 ? document.querySelector('#mp_3').style.transform = `rotate(180deg)` : document.querySelector('#mp_3').style.transform = `rotate(${(usage*12.166)/average3*90}deg)`;
+            break;
+        case 365:
+            (usage/365)/average1*90 > 180 ? document.querySelector('#mp_1').style.transform = `rotate(180deg)` : document.querySelector('#mp_1').style.transform = `rotate(${(usage/365)/average1*90}deg)`;
+            (usage/12.166)/average2*90 > 180 ? document.querySelector('#mp_2').style.transform = `rotate(180deg)` : document.querySelector('#mp_2').style.transform = `rotate(${(usage/12.166)/average2*90}deg)`;
+            usage/average3*90 > 180 ? document.querySelector('#mp_3').style.transform = `rotate(180deg)` : document.querySelector('#mp_3').style.transform = `rotate(${usage/average3*90}deg)`;
+    }
 }
